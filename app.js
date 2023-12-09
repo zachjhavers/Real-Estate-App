@@ -49,6 +49,22 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Login endpoint
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+      const user = await User.findOne({ username, password });
+      if (user) {
+          res.json({ success: true, message: 'Login successful' });
+      } else {
+          res.json({ success: false, message: 'Invalid credentials' });
+      }
+  } catch (error) {
+      res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
 // Routes
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
