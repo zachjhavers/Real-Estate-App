@@ -1,18 +1,53 @@
-// Loading 
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const saltRounds = 10;
 
 // Connecting To Mongo DB
-mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/RealEstateApp', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', (error) => console.error(error));
 mongoose.connection.once('open', () => console.log('Connected to MongoDB'));
 
+// User Schema
+const userSchema = new mongoose.Schema({
+  firstName: String,
+  username: { type: String, unique: true },
+  password: String 
+});
+
+// User Model
+const User = mongoose.model('User', userSchema);
+
 // Middleware
 app.use(bodyParser.json());
+app.use(express.static('./'));
+
+// POST route for registration
+app.post('/register', async (req, res) => {
+  console.log(req.body);
+  try {
+    
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+
+    // Create a new user instance and save it to the database
+    const newUser = new User({
+      firstName: req.body.firstName,
+      username: req.body.username,
+      password: hashedPassword
+    });
+
+    await newUser.save();
+
+    // Redirect to home page or send a success message
+    res.status(201).send({ success: true, message: 'User created' });
+  } catch (error) {
+    res.status(400).send({ success: false, message: error.message });
+  }
+});
 
 // Routes
 app.get('/', (req, res) => {
