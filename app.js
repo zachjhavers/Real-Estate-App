@@ -52,7 +52,7 @@ app.use(session({
   secret: 'your secret key', 
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/RealEstateApp' }) 
+  store: MongoStore.create({ mongoUrl: atlasUri }) 
 }));
 
 // POST route for registration
