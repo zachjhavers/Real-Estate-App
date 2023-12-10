@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     registerForm.addEventListener('submit', function(e) {
       e.preventDefault();
   
-      // Collect form data
       const formData = {
         firstName: document.getElementById('firstName').value,
         username: document.getElementById('username').value,
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       console.log(formData);
 
-      // Send a POST request to the server
       fetch('/register', {
         method: 'POST',
         headers: {
@@ -24,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          // Handle success 
+          window.location.href = '/index.html'; 
         } else {
-          // Handle failure 
+          
         }
       })
       .catch((error) => {

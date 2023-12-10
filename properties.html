@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Properties - Real Estate Investment App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/profile.html">Profile</a></li>
+            <li><a href="#" id="logoutLink">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="profile-container">
+        <h1>User Properties</h1>
+
+        <!-- Properties Table -->
+        <div class="current-properties">
+            <h2>Current Properties</h2>
+            <table id="userPropertiesTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Time on Market</th>
+                        <th>Agent's Name</th>
+                        <th>Picture</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Property Rows -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Edit Property -->
+        <div id="editPropertyForm" style="display: none;">
+            <h2>Edit Property</h2>
+            <form id="editProperty">
+                <input type="text" id="editPropertyName" placeholder="Property Name" required>
+                <input type="text" id="editPropertyLocation" placeholder="Location" required>
+                <input type="text" id="editPropertyPrice" placeholder="Price" required>
+                <input type="text" id="editPropertyTimeOnMarket" placeholder="Time on Market" required>
+                <input type="text" id="editPropertyAgentName" placeholder="Agent's Name" required>
+                <button type="submit">Update Property</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="properties.js"></script>
+</body>
+</html>

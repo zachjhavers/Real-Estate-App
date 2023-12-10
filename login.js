@@ -4,13 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Collect login data
         const loginData = {
             username: document.getElementById('username').value,
             password: document.getElementById('password').value
         };
 
-        // Send a POST request to the server
         fetch('/login', {
             method: 'POST',
             headers: {
@@ -21,13 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Handle success 
+                window.location.href = '/profile.html'; 
             } else {
-                // Handle failure 
+                alert('Login failed. Please check your credentials.');
             }
-        })
+        }) 
         .catch((error) => {
             console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
         });
     });
 });
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile - Real Estate Investment App</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/properties.html">Properties</a></li>
+            <li><a href="#" id="logoutLink">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="user-details">
+                <h2>My Information</h2>
+                <p><strong>Name:</strong> <span id="userName"></span></p>
+                <p><strong>Username:</strong> <span id="userUsername"></span></p>
+            </div>
+            <img id="profilePicDisplay" src="" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <!-- Profile Picture Upload -->
+        <div class="profile-pic-upload">
+            <form id="profilePicForm" enctype="multipart/form-data">
+                <input type="file" id="profilePic" name="profilePic" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>            
+        </div>
+
+        <!-- Add Property  -->
+        <div class="add-property">
+            <h2>Add New Property</h2>
+            <form id="addPropertyForm">
+                <input type="text" id="propertyName" placeholder="Property Name" required>
+                <input type="text" id="propertyLocation" placeholder="Location" required>
+                <input type="file" id="propertyImage" accept="image/*">
+                <button type="submit">Add Property</button>
+            </form>            
+        </div>
+
+        <!-- Current Properties -->
+        <div class="current-properties">
+            <h2>Current Properties</h2>
+            <table id="propertiesTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Property Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
+

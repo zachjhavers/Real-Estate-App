@@ -23,6 +23,8 @@ nav {
     background-color: #333;
     padding: 10px 0;
     z-index: 1000; 
+    display: flex;
+    justify-content: center;
 }
 
 ul {
@@ -43,7 +45,7 @@ a:hover {
     color: black; 
 }
 
-.register-form {
+.register-form, .login-form {
     margin-top: 70px; 
     width: 100%;
     max-width: 400px;
@@ -87,16 +89,120 @@ button:hover {
     background-color: black; 
 }
 
+.profile-container {
+    width: 100%;
+    max-width: 800px; 
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 80px 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.profile-container > div {
+    margin-bottom: 30px; 
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%; 
+}
+
+.profile-picture-upload, .properties-section {
+    margin-bottom: 20px;
+}
+
+.current-properties table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+.current-properties th, .current-properties td {
+    border: 1px solid #ddd; 
+    text-align: left;
+    padding: 10px; 
+}
+
+.current-properties th {
+    background-color: #333;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.current-properties td {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.current-properties tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.current-properties tr:hover {
+    background-color: #ddd;
+}
+
 @media (max-width: 600px) {
-    .register-form {
+    .register-form, .profile-container {
         margin: 20px; 
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-pic {
+        margin-top: 20px;
+        align-self: center; 
     }
 
     nav ul {
         flex-direction: column;
     }
-}
 
+    .current-properties table {
+        border: 0;
+    }
+
+    .current-properties thead {
+        display: none;
+    }
+
+    .current-properties tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .current-properties td {
+        display: block;
+        text-align: right;
+        font-size: 0.8rem;
+        border-bottom: 1px dotted #ccc;
+    }
+
+    .current-properties td:last-child {
+        border-bottom: 0;
+    }
+
+    .current-properties td::before {
+        content: attr(data-label); 
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
 
 .title {
     text-align: center;
@@ -119,6 +225,3 @@ button:hover {
         opacity: 1;
     }
 }
-
-
-
