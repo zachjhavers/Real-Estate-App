@@ -11,27 +11,27 @@ Ensure you have installed:
 
 ## Installation
 
-## 1. Clone the repository:
+# 1. Clone the repository:
 
 https://github.com/zachjhavers/Real-Estate-App.git
 
-## 2. Install dependencies:
+# 2. Install dependencies:
 
 npm install
 
-## 3. Create a `.env` file in the root directory and add necessary environment variables like:
+# 3. Create a `.env` file in the root directory and add necessary environment variables like:
 
 MONGO_URI=mongodb://localhost:27017/RealEstateApp
 SESSION_SECRET=YourSecretKey
 
-## 4. Start MongoDB (ensure MongoDB service is running on your system).
+# 4. Start MongoDB (ensure MongoDB service is running on your system).
 
 mongod
 
-## 5. Start the server:
+# 5. Start the server:
 
 npm start
 
-## 6. Access the application
+# 6. Access the application
 
 Access the application in a web browser at `http://localhost:3000`.
