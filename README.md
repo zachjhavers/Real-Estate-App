@@ -35,3 +35,7 @@ npm start
 ### 6. Access the application
 
 Access the application in a web browser at `http://localhost:3000`.
+
+### 7. Live Website
+
+https://real-estate-app-software-dev-1-f1e37354bd11.herokuapp.com/
