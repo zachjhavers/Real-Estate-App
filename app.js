@@ -11,15 +11,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const saltRounds = 10;
 
-// MongoDB Atlas Connection URI
 const atlasUri = "mongodb+srv://zachjhavers:4ysjVLPTn0yTzmKo@realestatecluster.u96vyio.mongodb.net/?retryWrites=true&w=majority";
 
-// Connecting To MongoDB Atlas
 mongoose.connect(atlasUri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', (error) => console.error(error));
 mongoose.connection.once('open', () => console.log('Connected to MongoDB Atlas'));
 
-// User Schema
 const userSchema = new mongoose.Schema({
   firstName: String,
   username: { type: String, unique: true },
@@ -38,13 +35,10 @@ const propertySchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } 
 });
 
-// User Model
 const User = mongoose.model('User', userSchema);
 
-//Property Model
 const Property = mongoose.model('Property', propertySchema);
 
-// Middleware
 app.use(bodyParser.json());
 app.use(express.static('./'));
 app.use('/uploads', express.static('uploads'));
@@ -55,7 +49,7 @@ app.use(session({
   store: MongoStore.create({ mongoUrl: atlasUri }) 
 }));
 
-// POST route for registration
+
 app.post('/register', async (req, res) => {
   console.log(req.body);
   try {
@@ -76,7 +70,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// Updated login endpoint
+
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -134,7 +128,7 @@ app.get('/user-info', async (req, res) => {
   }
 });
 
-// Endpoint to add a property
+
 app.post('/add-property', upload.single('propertyImage'), async (req, res) => {
   try {
     const { name, location } = req.body;

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                window.location.href = '/profile.html'; 
+                window.location.href = '/Pages/profile.html'; 
             } else {
                 alert('Login failed. Please check your credentials.');
             }

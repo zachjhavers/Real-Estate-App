@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => console.error('Error:', error));
 });
 
-//Add Profile Picture To User
 document.getElementById('profilePicForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -45,7 +44,6 @@ document.getElementById('profilePicForm').addEventListener('submit', function(e)
     });
 });
 
-//Add Property To User
 document.getElementById('addPropertyForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -81,7 +79,6 @@ document.getElementById('addPropertyForm').addEventListener('submit', function(e
     });
 });
 
-// Add Property to Table
 function addPropertyToTable(property) {
     const table = document.getElementById('propertiesTable');
     const row = table.insertRow(-1); 
@@ -100,7 +97,6 @@ function addPropertyToTable(property) {
     cell3.appendChild(image);
 }
 
-//Logout
 document.getElementById('logoutLink').addEventListener('click', function(e) {
     e.preventDefault();
 
