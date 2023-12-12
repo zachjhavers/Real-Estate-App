@@ -225,3 +225,35 @@ button:hover {
         opacity: 1;
     }
 }
+
+#search-form {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #property-list,
+  #news-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .property-item,
+  .news-item {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .container {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }

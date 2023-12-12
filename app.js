@@ -201,6 +201,18 @@ app.post('/logout', (req, res) => {
   });
 });
 
+app.post('/searchProperties', async (req, res) => {
+  const city = req.body.city;
+
+  try {
+    const properties = await Property.find({ location: city });
+    res.json(properties);
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
 // Routes
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
